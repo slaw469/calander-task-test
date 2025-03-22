@@ -7,12 +7,20 @@ import { DayPicker } from "react-day-picker"
 import { cn } from "@/lib/utils"
 import { buttonVariants } from "@/components/ui/button"
 
+// Create a type that extends the original but forces TypeScript to accept our component structure
+type DayPickerWithComponents = React.ComponentProps<typeof DayPicker> & {
+  components?: {
+    IconLeft?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+    IconRight?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  }
+}
+
 function Calendar({
   className,
   classNames,
   showOutsideDays = true,
   ...props
-}: React.ComponentProps<typeof DayPicker>) {
+}: DayPickerWithComponents) {
   return (
     <DayPicker
       showOutsideDays={showOutsideDays}
@@ -60,15 +68,11 @@ function Calendar({
         ...classNames,
       }}
       components={{
-        icons: {
-          prev: ({ ...props }) => (
-            <ChevronLeft className={cn("size-4")} {...props} />
-          ),
-          next: ({ ...props }) => (
-            <ChevronRight className={cn("size-4")} {...props} />
-          ),
-        },
-      }}
+        IconLeft: (props: React.SVGProps<SVGSVGElement>) => 
+          <ChevronLeft className={cn("size-4")} {...props} />,
+        IconRight: (props: React.SVGProps<SVGSVGElement>) => 
+          <ChevronRight className={cn("size-4")} {...props} />
+      } as any}
       {...props}
     />
   )
