@@ -17,13 +17,13 @@ import { Event, CustomEventModal } from "@/types";
 import CustomModal from "@/components/ui/custom-modal";
 
 const pageTransitionVariants = {
-  enter: (direction: number) => ({
+  enter: () => ({
     opacity: 0,
   }),
   center: {
     opacity: 1,
   },
-  exit: (direction: number) => ({
+  exit: () => ({
     opacity: 0,
     transition: {
       opacity: { duration: 0.2, ease: "easeInOut" },
@@ -129,16 +129,7 @@ export default function MonthView({
     );
   }
 
-  const containerVariants = {
-    enter: { opacity: 0 },
-    center: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.02,
-      },
-    },
-    exit: { opacity: 0 },
-  };
+  
 
   const itemVariants = {
     enter: { opacity: 0, y: 20 },

@@ -1,4 +1,4 @@
-import React from "react";
+
 import SchedulerWrapper from "@/components/schedule/_components/view/schedular-view-filteration";
 import { SchedulerProvider } from "@/providers/schedular-provider";
 

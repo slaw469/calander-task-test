@@ -1,14 +1,14 @@
 "use client";
 
 import React from "react";
-import { Badge } from "@/components/ui/badge";
+
 import { Button } from "@/components/ui/button";
 import { useModal } from "@/providers/modal-context";
 import AddEventModal from "@/components/schedule/_modals/add-event-modal";
 import { Event, CustomEventModal } from "@/types";
 import { TrashIcon, CalendarIcon, ClockIcon } from "lucide-react";
 import { useScheduler } from "@/providers/schedular-provider";
-import { motion } from "framer-motion";
+
 import { cn } from "@/lib/utils";
 import CustomModal from "@/components/ui/custom-modal";
 
@@ -76,7 +76,7 @@ export default function EventStyled({
 
   // Determine if delete button should be shown
   // Hide it for minimized events to save space, show on hover instead
-  const shouldShowDeleteButton = !event?.minmized;
+  
 
   // Handler function
   function handleEditEvent(event: Event) {

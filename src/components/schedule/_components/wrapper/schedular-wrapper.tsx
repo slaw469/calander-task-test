@@ -1,4 +1,4 @@
-import React from "react";
+
 import SchedulerView from "../view/schedular-view";
 
 export default function SchedulerWrapper() {

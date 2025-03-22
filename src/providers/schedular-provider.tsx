@@ -1,15 +1,15 @@
 "use client";
 
 // SchedulerContext.tsx
-import React, {
+import  {
   createContext,
   useContext,
   useReducer,
   ReactNode,
-  Dispatch,
+  
   useEffect,
 } from "react";
-import { z } from "zod";
+
 
 import {
   Action,
@@ -36,9 +36,7 @@ export const variants = [
 ] as const;
 
 // Initial state
-const initialState: SchedulerState = {
-  events: [],
-};
+
 
 // Reducer function
 const schedulerReducer = (

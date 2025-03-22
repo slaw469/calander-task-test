@@ -38,14 +38,14 @@ const itemVariants = {
 };
 
 const pageTransitionVariants = {
-  enter: (direction: number) => ({
+  enter: () => ({
     opacity: 0,
   }),
   center: {
     x: 0,
     opacity: 1,
   },
-  exit: (direction: number) => ({
+  exit: () => ({
     opacity: 0,
     transition: {
       opacity: { duration: 0.2, ease: "easeInOut" },
@@ -340,7 +340,7 @@ export default function DailyView({
             <div className="all-day-events">
               <AnimatePresence initial={false}>
                 {dayEvents && dayEvents?.length
-                  ? dayEvents?.map((event, eventIndex) => {
+                  ? dayEvents?.map((event) => {
                       return (
                         <motion.div
                           key={event.id}
@@ -403,7 +403,7 @@ export default function DailyView({
                 ))}
                 <AnimatePresence initial={false}>
                   {dayEvents && dayEvents?.length
-                    ? dayEvents?.map((event, eventIndex) => {
+                    ? dayEvents?.map((event) => {
                         // Find which time group this event belongs to
                         let eventsInSamePeriod = 1;
                         let periodIndex = 0;
@@ -423,7 +423,6 @@ export default function DailyView({
                           maxWidth,
                           minWidth,
                           top,
-                          zIndex,
                         } = handlers.handleEventStyling(
                           event, 
                           dayEvents,

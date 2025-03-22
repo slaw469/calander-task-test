@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -68,40 +68,11 @@ export default function SchedulerViewFilteration({
     return () => window && window.removeEventListener("resize", handleResize);
   }, [clientSide]);
 
-  function handleAddEvent(selectedDay?: number) {
+  function handleAddEvent() {
     // Create the modal content with proper data
-    const startDate = new Date(
-      new Date().getFullYear(),
-      new Date().getMonth(),
-      selectedDay ?? new Date().getDate(),
-      0,
-      0,
-      0,
-      0
-    );
-
-    const endDate = new Date(
-      new Date().getFullYear(),
-      new Date().getMonth(),
-      selectedDay ?? new Date().getDate(),
-      23,
-      59,
-      59,
-      999
-    );
 
     // Create a wrapper component to handle data passing
-    const ModalWrapper = () => {
-      const title =
-        CustomComponents?.CustomEventModal?.CustomAddEventModal?.title ||
-        "Add Event";
-
-      return (
-        <div>
-          <h2 className="text-xl font-semibold mb-4">{title}</h2>
-        </div>
-      );
-    };
+    
 
     // Open the modal with the content
     setOpen(

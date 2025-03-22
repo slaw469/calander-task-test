@@ -1,7 +1,7 @@
 import EventStyled from "@/components/schedule/_components/view/event-component/event-styled";
 import { useModal } from "@/providers/modal-context";
 import { Event } from "@/types";
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import { CalendarIcon } from "lucide-react";
 
 export default function ShowMoreEventsModal() {
